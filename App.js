@@ -1,10 +1,16 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, TextInput, View } from 'react-native';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+      <Text>**Hola 5C**</Text>
+      <Text>**Hola 5C**</Text>
+      <Text>**Hola 5C**</Text>
+      <Text>**Hola 5C**</Text>
+      <Text>**Hola 5C**</Text>
+      <Text>**Hola 5C**</Text>
+      <TextInput placeholder='Hola chicos***'></TextInput>
       <StatusBar style="auto" />
     </View>
   );
@@ -13,7 +19,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: 'lightblue',
     alignItems: 'center',
     justifyContent: 'center',
   },
