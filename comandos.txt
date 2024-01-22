@@ -1,0 +1,6 @@
+para crear nuestro proyecto ejecutamos 
+npx create-expo-app nombreDelProyecto
+
+entras a la carpeta con cd nombre del proyecto
+
+npm start
