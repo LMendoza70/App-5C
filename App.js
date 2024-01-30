@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { Alert, Button, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Alert, Button, Image, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 
 export default function App() {
   return (
@@ -7,8 +7,6 @@ export default function App() {
       <Encabezado/>
       <Cuerpo/>
       <Pie/>
-      <Pie2 opA='U' opB='C' opC='E' opD='F'/>
-      <Pie3 opA={'X'} opB={'Y'} opC={'Z'} opD={'W'}/>
       <StatusBar style="auto" />
     </View>
   );
@@ -75,7 +73,20 @@ export const Login=()=>{
       <TextInput></TextInput>
       <Button title='Login' onPress={()=>Alert.alert('Logeado')} />
       <Button title='Cancel' onPress={funcion}/>
-      <Button title='ejemplo' onPress={funcion}/>
+      <Boton 
+        texto={'login'} 
+        imagen={require('./assets/react.png')}
+        accion={funcion}
+        color1={'red'}
+        color2={'pink'}/>
+      
+      <Boton 
+        texto={'cancel'} 
+        imagen={require('./assets/favicon.png')}
+        accion={()=>Alert.alert('otra funcion')}
+        color1={'blue'}
+        color2={'lightblue'}/>
+      
     </View>
   )
 }
@@ -84,8 +95,41 @@ const funcion=()=>{
   //funcion bien largota
   Alert.alert('llamada desde la funcion')
 }
+export const Boton=({texto,imagen,accion,color1,color2})=>{
+  return(
+    <Pressable style={({pressed})=>[{
+      backgroundColor:pressed? color1:color2,
+      margin:pressed?6:3,
+    },styles.Boton]}
+    
+    onPress={accion}
+
+    >
+
+      <Image 
+        source={imagen}
+        style={styles.img} 
+      />
+      
+      <Text style={styles.TextoB}>{texto}</Text>
+    </Pressable>
+  )
+} 
 
 const styles = StyleSheet.create({
+  Boton:{
+    flexDirection:'row',
+    padding:5,
+    borderBlockColor:'black',
+    borderWidth:1,
+    borderRadius:5,
+    alignItems:'center',
+    justifyContent:'center'
+  },
+  TextoB:{
+    color:'white',
+    fontSize:18
+  },
   container: {
     flex: 1,
     backgroundColor: 'lightblue',
@@ -113,5 +157,10 @@ const styles = StyleSheet.create({
   texto:{
     fontSize:25,
     color:'#fff'
+  },
+  img:{
+    height:30,
+    width:30,
+    marginRight:10
   }
 });
