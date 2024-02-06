@@ -1,5 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { Alert, Button, Image, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Contador } from './Componentes/Contador';
 
 export default function App() {
   return (
@@ -59,7 +60,7 @@ export const Cuerpo=()=>{
   return(
     <View style={styles.cuerpo}>
         <Text style={styles.texto}>Cuerpo</Text>
-        <Login/>
+        <Contador/>
       </View>
   )
 }
