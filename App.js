@@ -1,6 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
 import { Alert, Button, Image, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 import { Contador } from './Componentes/Contador';
+import { Boton, Caja } from './Componentes/Atomicos';
+import Calculadora from './Componentes/Calculadora';
 
 export default function App() {
   return (
@@ -59,8 +61,7 @@ export const Pie3=({opA,opB,opC,opD})=>{
 export const Cuerpo=()=>{
   return(
     <View style={styles.cuerpo}>
-        <Text style={styles.texto}>Cuerpo</Text>
-        <Contador/>
+        <Calculadora/>
       </View>
   )
 }
@@ -87,6 +88,8 @@ export const Login=()=>{
         accion={()=>Alert.alert('otra funcion')}
         color1={'blue'}
         color2={'lightblue'}/>
+
+      <Caja valor={'5'}/>
       
     </View>
   )
@@ -96,41 +99,9 @@ const funcion=()=>{
   //funcion bien largota
   Alert.alert('llamada desde la funcion')
 }
-export const Boton=({texto,imagen,accion,color1,color2})=>{
-  return(
-    <Pressable style={({pressed})=>[{
-      backgroundColor:pressed? color1:color2,
-      margin:pressed?6:3,
-    },styles.Boton]}
-    
-    onPress={accion}
-
-    >
-
-      <Image 
-        source={imagen}
-        style={styles.img} 
-      />
-      
-      <Text style={styles.TextoB}>{texto}</Text>
-    </Pressable>
-  )
-} 
 
 const styles = StyleSheet.create({
-  Boton:{
-    flexDirection:'row',
-    padding:5,
-    borderBlockColor:'black',
-    borderWidth:1,
-    borderRadius:5,
-    alignItems:'center',
-    justifyContent:'center'
-  },
-  TextoB:{
-    color:'white',
-    fontSize:18
-  },
+  
   container: {
     flex: 1,
     backgroundColor: 'lightblue',
@@ -158,10 +129,5 @@ const styles = StyleSheet.create({
   texto:{
     fontSize:25,
     color:'#fff'
-  },
-  img:{
-    height:30,
-    width:30,
-    marginRight:10
   }
 });
