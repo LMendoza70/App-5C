@@ -3,6 +3,7 @@ import { Alert, Button, Image, Pressable, StyleSheet, Text, TextInput, View } fr
 import { Contador } from './Componentes/Contador';
 import { Boton, Caja } from './Componentes/Atomicos';
 import Calculadora from './Componentes/Calculadora';
+import Imc from './Componentes/Imc';
 
 export default function App() {
   return (
@@ -61,7 +62,7 @@ export const Pie3=({opA,opB,opC,opD})=>{
 export const Cuerpo=()=>{
   return(
     <View style={styles.cuerpo}>
-        <Calculadora/>
+        <Imc/>
       </View>
   )
 }

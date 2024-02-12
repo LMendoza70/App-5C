@@ -1,7 +1,7 @@
 import {Pressable,Image,Text, View } from 'react-native'
 import { estilos, estilos as styles } from './Estilos'
 
-export const Boton=({texto,imagen,accion,color1,color2})=>{
+export const Boton=({texto,imagen,accion,color1='#bb5',color2='#ac9'})=>{
     return(
       <Pressable 
       style={({pressed})=>[{
