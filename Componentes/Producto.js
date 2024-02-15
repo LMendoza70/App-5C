@@ -1,6 +1,5 @@
 import { View, Text, Image, Alert } from 'react-native'
 import React, { useEffect, useState } from 'react'
-import { Boton } from './Atomicos'
 
 const Producto = () => {
     const [prod,setProd]=useState(null)
@@ -14,11 +13,10 @@ const Producto = () => {
             setLoad(true)
         })
         .catch((err)=>Alert.alert('Ocurrio un error : '+err))
-    },[load])
+    },[])
 
-  return (
-    <View>
-        {load?(
+    const screenL=()=>{
+        return(
         <View>
             <Text>Titulo : {prod.title} </Text>
             <Text>Precio : $ {prod.price} MXN </Text>
@@ -26,15 +24,18 @@ const Producto = () => {
             <Text>Descripcion : {prod.description} </Text>
             <Text>Valoracion : {prod.rating.rate} </Text>
         </View>
-        ):(
+        )
+    }
+
+    const screenU=()=>{
+        return(
             <Text>Cargando datos...</Text>
-        )}
-      
+        )
+    }
+  return (
+    <View>
+        {load?screenL():screenU()}
     </View>
   )
 }
-
-/*
-*/
-
 export default Producto
