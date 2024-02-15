@@ -6,6 +6,7 @@ const Imc = () => {
     const [peso, setpeso] = useState(0)
     const [altura, setaltura] = useState(0)
     const [resultado, setresultado]=useState(0)
+
   return (
     <View>
       <Text>Calculadora de IMC</Text>
