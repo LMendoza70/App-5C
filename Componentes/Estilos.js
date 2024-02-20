@@ -37,3 +37,11 @@ export const estilos=StyleSheet.create({
         flexWrap:'wrap'
       }
 })
+
+export const colores={
+color1: '#9da4c4',
+color2: '#8189a8' ,
+color3: '#666e8b',
+color4: '#4a526f',
+color5: '#2f3752'
+}

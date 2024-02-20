@@ -6,6 +6,8 @@ import Calculadora from './Componentes/Calculadora';
 import Imc from './Componentes/Imc';
 import Producto from './Componentes/Producto';
 import Productos from './Componentes/Productos';
+import Clima from './Componentes/Clima';
+import { colores } from './Componentes/Estilos';
 
 export default function App() {
   return (
@@ -64,7 +66,7 @@ export const Pie3=({opA,opB,opC,opD})=>{
 export const Cuerpo=()=>{
   return(
     <View style={styles.cuerpo}>
-        <Productos/>
+        <Clima/>
       </View>
   )
 }
@@ -117,7 +119,7 @@ const styles = StyleSheet.create({
     flexDirection:'row',
     alignItems:'center',
     justifyContent:'space-between',
-    backgroundColor:'#1373e8',
+    backgroundColor:colores.color1,
   },
   cuerpo:{
     flex:8
