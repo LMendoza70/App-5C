@@ -5,6 +5,7 @@ import { Boton, Caja } from './Componentes/Atomicos';
 import Calculadora from './Componentes/Calculadora';
 import Imc from './Componentes/Imc';
 import Producto from './Componentes/Producto';
+import Productos from './Componentes/Productos';
 
 export default function App() {
   return (
@@ -63,7 +64,7 @@ export const Pie3=({opA,opB,opC,opD})=>{
 export const Cuerpo=()=>{
   return(
     <View style={styles.cuerpo}>
-        <Producto/>
+        <Productos/>
       </View>
   )
 }
