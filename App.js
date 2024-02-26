@@ -8,101 +8,38 @@ import Producto from './Componentes/Producto';
 import Productos from './Componentes/Productos';
 import Clima from './Componentes/Clima';
 import { colores } from './Componentes/Estilos';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Encabezado/>
-      <Cuerpo/>
-      <Pie/>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name='Menu de Practicas' component={Home}/>
+        <Stack.Screen name='Calculadora' component={Calculadora}/>
+        <Stack.Screen name='Clima' component={Clima}/>
+        <Stack.Screen name='Contador' component={Contador}/>
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
-export const Encabezado=()=>{
-  return(
-    <View style={styles.encabezado}>
-        <Text style={styles.texto}>X</Text>
-        <Text style={styles.texto}>Encabezado</Text>
-        <Text style={styles.texto}>X</Text>
-      </View>
-  )
-}
+const Stack=createNativeStackNavigator()
 
-export const Pie=()=>{
-  return(
-    <View style={styles.pie}>
-        <Text style={styles.texto}>X</Text>
-        <Text style={styles.texto}>X</Text>
-        <Text style={styles.texto}>X</Text>
-        <Text style={styles.texto}>X</Text>
-      </View>
-  )
-}
-
-export const Pie2=(props)=>{
-  return(
-    <View style={styles.pie}>
-        <Text style={styles.texto}>{props.opA}</Text>
-        <Text style={styles.texto}>{props.opB}</Text>
-        <Text style={styles.texto}>{props.opC}</Text>
-        <Text style={styles.texto}>{props.opD}</Text>
-      </View>
-  )
-}
-
-export const Pie3=({opA,opB,opC,opD})=>{
-  return(
-    <View style={styles.pie}>
-        <Text style={styles.texto}>{opA}</Text>
-        <Text style={styles.texto}>{opB}</Text>
-        <Text style={styles.texto}>{opC}</Text>
-        <Text style={styles.texto}>{opD}</Text>
-      </View>
-  )
-}
-
-export const Cuerpo=()=>{
-  return(
-    <View style={styles.cuerpo}>
-        <Clima/>
-      </View>
-  )
-}
-
-export const Login=()=>{
+const Home=({navigation})=>{
   return(
     <View>
-      <Text>Username...</Text>
-      <TextInput></TextInput>
-      <Text>Password...</Text>
-      <TextInput></TextInput>
-      <Button title='Login' onPress={()=>Alert.alert('Logeado')} />
-      <Button title='Cancel' onPress={funcion}/>
-      <Boton 
-        texto={'login'} 
-        imagen={require('./assets/react.png')}
-        accion={funcion}
-        color1={'red'}
-        color2={'pink'}/>
-      
-      <Boton 
-        texto={'cancel'} 
-        imagen={require('./assets/favicon.png')}
-        accion={()=>Alert.alert('otra funcion')}
-        color1={'blue'}
-        color2={'lightblue'}/>
-
-      <Caja valor={'5'}/>
-      
+      <Text>Hola soy el home</Text>
+      <Boton texto={'Calculadora'}
+      accion={()=>navigation.navigate('Calculadora',{edad:55})}/>
+      <Boton texto={'Clima'}
+      accion={()=>navigation.navigate('Clima')}/>
+      <Boton texto={'Contador'}/>
+      <Boton texto={'IMC'}/>
+      <Boton texto={'Producto'}/>
+      <Boton texto={'Productos'}/>
     </View>
   )
-}
-
-const funcion=()=>{
-  //funcion bien largota
-  Alert.alert('llamada desde la funcion')
 }
 
 const styles = StyleSheet.create({
