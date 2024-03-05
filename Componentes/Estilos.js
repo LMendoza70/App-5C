@@ -1,6 +1,13 @@
 import {StyleSheet} from 'react-native'
 
 export const estilos=StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: 'lightblue',
+    alignItems: 'stretch',
+    justifyContent: 'center',
+
+  },
     Boton:{
         flexDirection:'row',
         padding:5,

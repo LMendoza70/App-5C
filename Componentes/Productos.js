@@ -1,7 +1,9 @@
-import { View, Text, Alert, ActivityIndicator, Image, FlatList } from 'react-native'
+import { View, Text, Alert, ActivityIndicator, Image, FlatList, Pressable } from 'react-native'
 import React, { useEffect, useState } from 'react'
+import { useNavigation } from '@react-navigation/native'
 
 const Productos = () => {
+    const nav=useNavigation()
     const [data,setData]=useState([])
     const [load,setLoad]=useState(false)
 
@@ -34,20 +36,21 @@ const LScreen=()=>{
             renderItem={({item})=><Card 
             title={item.title}
             price={item.price}
-            image={item.image}/>}
+            image={item.image}
+            id={item.id}/>}
             keyExtractor={item=>item.id}/>
         </View>
     )
 }
 
-const Card=({title,price,image})=>{
+const Card=({title,price,image,id})=>{
     return(
-        <View>
+        <Pressable onPress={()=>nav.navigate('Producto',{id:id})}>
             <Text>Producto : {title}</Text>
             <Text>Precio : $ {price}MNX</Text>
             <Image style={{height:85,width:85}}
             source={{uri:image}}/>
-        </View>
+        </Pressable>
     )
 }
 
